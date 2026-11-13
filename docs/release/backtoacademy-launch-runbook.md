@@ -1,7 +1,8 @@
 # Launch runbook — backtoacademy.com
 
 Owner: repository owner. Updated 2026-08-05 after provisioning the live
-Cloudflare infrastructure.
+Cloudflare infrastructure; revised 2026-11-13 when the operating entity was
+recorded in `config/brand.ts`.
 
 ## Deployment posture
 
