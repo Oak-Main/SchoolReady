@@ -47,6 +47,7 @@ export const RATIONALE_CODES = [
   "static_home",
   "planner_landing",
   "methodology_reference",
+  "legal_policy",
   "calculator_tool",
   "tool_generic_when_anonymous",
   "personalized_session_results",
@@ -98,6 +99,26 @@ export const ROUTE_SEO: readonly RouteSeoEntry[] = [
       detail: "How the math works — genuine information gain, sourced from the engines' own constants.",
     },
     breadcrumbLabel: COMMON.navMethodology,
+    jsonLd: ["breadcrumb"],
+  },
+  {
+    pattern: "/privacy",
+    policy: "index",
+    rationale: {
+      code: "legal_policy",
+      detail: "The privacy policy and its operator: static, the same for every visitor, and linked from every page's footer.",
+    },
+    breadcrumbLabel: COMMON.navPrivacy,
+    jsonLd: ["breadcrumb"],
+  },
+  {
+    pattern: "/terms",
+    policy: "index",
+    rationale: {
+      code: "legal_policy",
+      detail: "The terms of use and their operator: static, the same for every visitor, and linked from every page's footer.",
+    },
+    breadcrumbLabel: COMMON.navTerms,
     jsonLd: ["breadcrumb"],
   },
   {

@@ -10,6 +10,7 @@ import { BRAND } from "../config/brand";
 import { canonicalOrigin } from "../src/seo/config";
 import { nonIndexablePaths } from "../src/seo/route-metadata";
 import { handleUiRequest } from "../src/ui/server";
+import { LEGAL_EFFECTIVE } from "../src/ui/screens/legal";
 import { makeClient } from "./api-helpers";
 import type { WorkerClient } from "./api-helpers";
 
@@ -173,5 +174,44 @@ describe("SEO over real rendered pages", () => {
         (page.includes(INDEX_META) ? 1 : 0) + (page.includes(NOINDEX_META) ? 1 : 0);
       expect(count).toBe(1);
     }
+  });
+});
+
+/**
+ * Legal kit v2 (2026-11-13): /privacy and /terms over the REAL UI server.
+ * Proves the router owns both paths, the operator strings come from
+ * config/brand.ts, the effective date renders, the pages are indexable with
+ * a canonical, and the privacy page carries the export/delete controls its
+ * own policy text promises.
+ */
+describe("legal pages over the real UI server", () => {
+  const client = makeClient({ idPrefix: "legal" });
+  const origin = canonicalOrigin();
+
+  for (const path of ["/privacy", "/terms"] as const) {
+    it(`${path}: 200, indexable, canonical, operator from config/brand.ts`, async () => {
+      const page = await ui(client, "GET", path, { cookie: null });
+      expect(page.status).toBe(200);
+      expect(page.html).toContain(INDEX_META);
+      expect(page.headers.get("x-robots-tag")).toBe("index,follow,max-image-preview:large");
+      expect(page.html).toContain(`<link rel="canonical" href="${origin}${path}">`);
+      expect(page.html).toContain(BRAND.legalEntity);
+      expect(page.html).toContain(BRAND.legalEmail);
+      expect(page.html).toContain(`Effective ${LEGAL_EFFECTIVE}.`);
+      expect(page.html).toContain('href="/privacy"');
+      expect(page.html).toContain('href="/terms"');
+    });
+  }
+
+  it("/privacy renders the export link and points to the one-pass delete form", async () => {
+    const page = await ui(client, "GET", "/privacy", { cookie: null });
+    expect(page.html).toContain(BRAND.legalAddress);
+    expect(page.html).toContain('href="/api/export"');
+    expect(page.html).toContain('href="/account"');
+  });
+
+  it("/terms states the governing law from config/brand.ts", async () => {
+    const page = await ui(client, "GET", "/terms", { cookie: null });
+    expect(page.html).toContain(`governed by the laws of ${BRAND.governingLaw}`);
   });
 });

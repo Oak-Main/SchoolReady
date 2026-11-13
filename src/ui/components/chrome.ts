@@ -31,6 +31,8 @@ export const NAV_KEYS = [
   "account",
   "methodology",
   "status",
+  "privacy",
+  "terms",
 ] as const;
 export type NavKey = (typeof NAV_KEYS)[number];
 
@@ -49,6 +51,8 @@ export const NAV_ITEMS: readonly { key: NavKey; href: string; label: string }[] 
   { key: "account", href: "/account", label: COMMON.navAccount },
   { key: "methodology", href: "/methodology", label: COMMON.navMethodology },
   { key: "status", href: "/admin/status", label: COMMON.navStatus },
+  { key: "privacy", href: "/privacy", label: COMMON.navPrivacy },
+  { key: "terms", href: "/terms", label: COMMON.navTerms },
 ];
 
 const PRIMARY_NAV: readonly NavKey[] = ["intake", "plan", "checklist", "basket", "safety"];

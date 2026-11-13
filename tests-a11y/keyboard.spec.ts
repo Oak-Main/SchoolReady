@@ -104,8 +104,9 @@ test.describe("journey 1 — two-child merge, keyboard only", () => {
     await expect(page.locator("h1")).toContainText("Confirm what we read");
     const member = page.locator("#confirm-member");
     await member.focus();
-    // Options: "Child 1" (existing) then "New child (2)" — arrow to child 2.
-    await member.selectOption({ index: 0 });
+    // Options: the "Choose a child" placeholder (added in PR #8), "Child 1"
+    // (existing), then "Add child 2" — start on child 1 and arrow to child 2.
+    await member.selectOption("1");
     await page.keyboard.press("ArrowDown");
     await expect(member).toHaveValue("2");
     await page.locator('form[action="/intake/confirm"] button[type="submit"]').focus();

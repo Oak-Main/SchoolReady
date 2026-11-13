@@ -65,6 +65,7 @@ import type { BudgetData } from "./screens/budget";
 import { renderDeals } from "./screens/deals";
 import type { DealsData } from "./screens/deals";
 import { renderMethodology } from "./screens/methodology";
+import { renderPrivacyPage, renderTermsPage } from "./screens/legal";
 import { renderAccount } from "./screens/account";
 import type { AccountData } from "./screens/account";
 import { renderStatus } from "./screens/status";
@@ -456,6 +457,10 @@ export async function handleUiRequest(request: Request, deps: ApiDeps): Promise<
       }
       case "/methodology":
         return htmlResponse(renderMethodology(), session);
+      case "/privacy":
+        return htmlResponse(renderPrivacyPage(), session);
+      case "/terms":
+        return htmlResponse(renderTermsPage(), session);
       case "/account":
         // [Monetization — Phase 9] fixtureMode drives the Season Pass
         // checkout entry point's honest availability copy.

@@ -108,7 +108,14 @@ function seasonPassBlock(entitlements: ApiOk<EntitlementsData>, fixtureMode: boo
  * [Compliance — Phase 10] Full plain-language privacy policy. Every claim in
  * this copy is enforced by code/tests cited in docs/compliance/coppa-posture.md.
  */
-function privacyBlock(): Html {
+/**
+ * File name for the JSON export. /api/export answers with plain JSON and no
+ * Content-Disposition, so the export links carry `download` to make the
+ * browser save it, as their "Download ... as a JSON file" labels promise.
+ */
+export const EXPORT_FILE_NAME = "my-school-supply-plan.json";
+
+export function privacyBlock(): Html {
   const items = (list: readonly string[]): Html =>
     html`<ul>${joinHtml(list.map((item) => html`<li>${item}</li>`))}</ul>`;
   return html`<h2>${icon("shield-check", { size: 20 })} ${PRIVACY.title}</h2><p class="lead">${PRIVACY.lead}</p><p>${ACCOUNT.privacyBody}</p><h3>${PRIVACY.collectTitle}</h3>${items(
@@ -144,7 +151,7 @@ export function renderAccount(
         body: html`<h2>${icon("download", { size: 20 })} ${ACCOUNT.exportTitle}</h2><p>${ACCOUNT.exportBody}</p><p>${linkButton(
           { label: ACCOUNT.exportCta, href: "/plan/checklist", variant: "secondary", icon: "printer" },
         )} ${linkButton(
-          { label: ACCOUNT.exportJsonCta, href: "/api/export", variant: "secondary", icon: "download" },
+          { label: ACCOUNT.exportJsonCta, href: "/api/export", variant: "secondary", icon: "download", download: EXPORT_FILE_NAME },
         )}</p>`,
       },
       {

@@ -1,6 +1,6 @@
 # Launch checklist — open preconditions with owners
 
-- Owner of this list: release-qa (Phase 12). Status date: 2026-08-05.
+- Owner of this list: release-qa (Phase 12). Status date: 2026-11-13 (entity item); other items as of 2026-08-05.
 - Plain statement, per the release mandate: **the beta is NOT releasable
   until every item below clears.** Each item is independently blocking.
   The congruence gate (docs/release/congruence-gate.md) passed every line
@@ -16,11 +16,11 @@
   `tests/config.test.ts` enforces isolation, including against this
   document). See the launch runbook alongside this file for the
   Cloudflare provisioning + deploy steps this unblocks.
-- **Still open: `legalEntity: "UNSET — no legal entity formed"`.** No
-  agent may invent a legal person — this needs the repository owner's
-  actual business name (sole proprietorship under your legal name, an
-  LLC, etc.). The privacy policy / incident contact have no legal person
-  behind them until it clears. Still open: favicon + manifest icons
+- **Entity DISCHARGED 2026-11-13.** The repository owner supplied the
+  operating company for the whole portfolio (legal kit v2). Its name,
+  address, legal email and governing law live only in `config/brand.ts`
+  (`legalEntity`, `legalAddress`, `legalEmail`, `governingLaw`). `/privacy` and `/terms` render them and are linked
+  from every page's footer. Still open: favicon + manifest icons
   (clears the only Lighthouse console error and PWA installability,
   Phase 7 §7) and the real wordmark/logo graphic (current wordmark is
   text-only).

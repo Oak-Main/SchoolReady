@@ -36,6 +36,8 @@ const SERVER_HTML_ROUTES = [
   "/budget",
   "/deals",
   "/methodology",
+  "/privacy",
+  "/terms",
   "/account",
   "/admin/status",
   "/item/:slug",
@@ -60,7 +62,17 @@ describe("route metadata map — coverage and rationale", () => {
 
   it("indexable set is exactly the sanctioned tool/landing surfaces", () => {
     expect([...indexablePaths()].sort()).toEqual(
-      ["/", "/budget", "/capsule", "/deals", "/intake", "/methodology", "/plan/basket"].sort(),
+      [
+        "/",
+        "/budget",
+        "/capsule",
+        "/deals",
+        "/intake",
+        "/methodology",
+        "/plan/basket",
+        "/privacy",
+        "/terms",
+      ].sort(),
     );
   });
 

@@ -149,7 +149,7 @@ Rules:
 | A real product recall lands mid-season | No action needed for display (recall data enters via the pipeline and renders above everything by construction) — but in fixture mode the CPSC feed is OFF; a real recall response requires the live-source go-live in the licensing register |
 | Suspected PII in logs | Logging is allowlist-only (`src/api/logging.ts`, tested); if a field slipped in, that is a build failure class — hotfix the allowlist test first |
 | Abuse of upload/alerts | KV `ratelimit:*` buckets are live (5/min token buckets); Turnstile is fixture-grade in the beta — if abused, this is the trigger to accelerate launch item 4 (real Turnstile), not to weaken rate limits |
-| Legal/takedown contact | The registered agent of the legal entity in `config/brand.ts` (UNSET until launch item 1 clears — a reason it blocks release) |
+| Legal/takedown contact | The legal entity and legal email in `config/brand.ts` (`legalEntity`, `legalEmail`; supplied by the repository owner 2026-11-13, launch item 1 discharged) |
 
 ## Deployment record (2026-08-05)
 
