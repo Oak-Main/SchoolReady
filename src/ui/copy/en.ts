@@ -40,6 +40,8 @@ export const COMMON = {
   navHousehold: "Household",
   navAccount: "Alerts and privacy",
   navMethodology: "How the math works",
+  navPrivacy: "Privacy policy",
+  navTerms: "Terms of use",
   navStatus: "Data sources",
   footerLicenses: "Type and icon licenses",
   offline: "You are offline. Your checklist keeps working; prices and lists will refresh when the connection returns.",
@@ -607,6 +609,44 @@ export const PRIVACY = {
   rightsTitle: "Your controls",
   rightsBody:
     "Use Analytics choices in the footer to allow or refuse optional analytics at any time. Export everything this session stores as a machine-readable file, or delete it all in one pass — both are below, and neither requires contacting anyone.",
+} as const;
+
+/**
+ * Legal pages (legal kit v2, 2026-11-13). The operator's name, address, email
+ * and governing law come from config/brand.ts and are passed in, so no legal
+ * string is typed here.
+ */
+export const LEGAL_PAGES = {
+  privacyTitle: "Privacy policy",
+  privacyLead:
+    "Who runs this site, and everything it stores, never stores, and shares. The same policy appears on the Alerts and privacy page.",
+  operatorTitle: "Who runs this site",
+  operatorBody: (site: string, entity: string, address: string, email: string): string =>
+    `${site} is operated by ${entity}, ${address}. For any privacy question or request, email ${email}.`,
+  effective: (date: string): string => `Effective ${date}.`,
+  termsTitle: "Terms of use",
+  termsLead: (site: string, entity: string): string =>
+    `These terms govern your use of ${site}, operated by ${entity}. By using the site you agree to them.`,
+  betaTitle: "A beta built on sample data",
+  betaBody:
+    "This site is a validation beta. Its schools, supply lists and product data are fixtures — clearly labeled samples, not live listings — until each live source is licensed and switched on. Every fact still shows its source and date.",
+  infoTitle: "Information, not advice",
+  infoBody:
+    "Plans, prices, tax estimates, trend labels and recall checks are information to help you decide. They are not financial, legal or safety advice. Check prices with the retailer, tax-holiday dates with your state, and recalls with the official CPSC notice before you act.",
+  useTitle: "Using the site",
+  useBody:
+    "Use the site for your own household's planning. Do not upload anything you do not have the right to share, and do not try to break, overload or scrape the service.",
+  linksTitle: "Other sites",
+  linksBody:
+    "Links take you to retailers and other websites, whose own terms and privacy policies apply. No retailer pays to change a ranking here, and no affiliate program is active today.",
+  warrantyTitle: "No warranty",
+  warrantyBody: (entity: string): string =>
+    `The site is provided as is, without warranties of any kind. To the extent the law allows, ${entity} is not liable for losses arising from your use of the site or of information on it.`,
+  lawTitle: "Governing law and contact",
+  lawBody: (law: string, entity: string, address: string, email: string): string =>
+    `These terms are governed by the laws of ${law}. Questions: ${entity}, ${address}, ${email}.`,
+  changesTitle: "Changes",
+  changesBody: "When these terms or the privacy policy change, the effective date at the top of the page changes with them.",
 } as const;
 
 /**

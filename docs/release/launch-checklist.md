@@ -16,11 +16,11 @@
   `tests/config.test.ts` enforces isolation, including against this
   document). See the launch runbook alongside this file for the
   Cloudflare provisioning + deploy steps this unblocks.
-- **Still open: `legalEntity: "UNSET — no legal entity formed"`.** No
-  agent may invent a legal person — this needs the repository owner's
-  actual business name (sole proprietorship under your legal name, an
-  LLC, etc.). The privacy policy / incident contact have no legal person
-  behind them until it clears. Still open: favicon + manifest icons
+- **Entity DISCHARGED 2026-11-13.** The repository owner supplied the
+  operating company for the whole portfolio (legal kit v2): Oak and Main
+  Developers LLC, with its address, legal email and governing law, now in
+  `config/brand.ts`. `/privacy` and `/terms` render them and are linked
+  from every page's footer. Still open: favicon + manifest icons
   (clears the only Lighthouse console error and PWA installability,
   Phase 7 §7) and the real wordmark/logo graphic (current wordmark is
   text-only).

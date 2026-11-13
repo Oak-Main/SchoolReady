@@ -13,6 +13,7 @@
 import { renderDocument } from "./components/chrome";
 import { renderHome } from "./screens/home";
 import { renderMethodology } from "./screens/methodology";
+import { renderPrivacyPage, renderTermsPage } from "./screens/legal";
 import { renderIntake } from "./screens/intake";
 import { buildStylesheet } from "./styles";
 import { webManifest } from "./pwa";
@@ -36,6 +37,8 @@ export function staticPages(): StaticPage[] {
       path: "methodology/index.html",
       html: renderDocument(renderMethodology(), options("/methodology")),
     },
+    { path: "privacy/index.html", html: renderDocument(renderPrivacyPage(), options("/privacy")) },
+    { path: "terms/index.html", html: renderDocument(renderTermsPage(), options("/terms")) },
     {
       path: "intake/index.html",
       html: renderDocument(renderIntake({ kind: "form", tab: "paste" }), options("/intake")),

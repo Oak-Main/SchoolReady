@@ -108,7 +108,7 @@ function seasonPassBlock(entitlements: ApiOk<EntitlementsData>, fixtureMode: boo
  * [Compliance — Phase 10] Full plain-language privacy policy. Every claim in
  * this copy is enforced by code/tests cited in docs/compliance/coppa-posture.md.
  */
-function privacyBlock(): Html {
+export function privacyBlock(): Html {
   const items = (list: readonly string[]): Html =>
     html`<ul>${joinHtml(list.map((item) => html`<li>${item}</li>`))}</ul>`;
   return html`<h2>${icon("shield-check", { size: 20 })} ${PRIVACY.title}</h2><p class="lead">${PRIVACY.lead}</p><p>${ACCOUNT.privacyBody}</p><h3>${PRIVACY.collectTitle}</h3>${items(
