@@ -29,8 +29,12 @@ export function linkButton(args: {
   href: string;
   variant?: "primary" | "secondary";
   icon?: IconName;
+  /** Ask the browser to save the target as this file name (same-origin only). */
+  download?: string;
 }): Html {
-  return html`<a class="button button-${args.variant ?? "primary"}" href="${args.href}">${
+  return html`<a class="button button-${args.variant ?? "primary"}" href="${args.href}"${
+    args.download ? html` download="${args.download}"` : null
+  }>${
     args.icon ? icon(args.icon, { size: 20 }) : null
   }<span>${args.label}</span></a>`;
 }

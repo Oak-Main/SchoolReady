@@ -37,3 +37,9 @@ describe("prerendered legal pages", () => {
     );
   });
 });
+
+describe("export links save a file, as their labels say", () => {
+  it("the /privacy export link carries the download attribute", () => {
+    expect(byPath.get("privacy/index.html")).toMatch(/href="\/api\/export" download="[^"]+\.json"/);
+  });
+});

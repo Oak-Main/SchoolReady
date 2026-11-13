@@ -649,7 +649,7 @@ export const LEGAL_PAGES = {
   controlsBody:
     "Both controls work without contacting anyone. The export downloads everything this session stores as a machine-readable file. The delete control, on the Alerts and privacy page, removes all of it in one pass.",
   controlsExportCta: "Download everything as a JSON file",
-  controlsDeleteCta: "Go to Delete everything",
+  controlsDeleteCta: "Go to delete everything",
   changesTitle: "Changes",
   changesBody: "When these terms or the privacy policy change, the effective date at the top of the page changes with them.",
 } as const;

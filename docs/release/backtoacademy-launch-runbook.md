@@ -29,8 +29,10 @@ checkout remains unavailable.
   rule as defense in depth while application code deletes uploads immediately
   after processing and enforces a 15-minute TTL.
 
-`config/brand.ts` intentionally keeps `legalEntity` as
-`"UNSET — no legal entity formed"`; an agent must not invent a legal person.
+`config/brand.ts` carries the operating entity, address, legal email and
+governing law the repository owner supplied on 2026-11-13 (`legalEntity`,
+`legalAddress`, `legalEmail`, `governingLaw`). Change them only there, and
+only on the owner's word; an agent must not invent a legal person.
 
 ## Manual release
 

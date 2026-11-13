@@ -1,6 +1,6 @@
 # Launch checklist — open preconditions with owners
 
-- Owner of this list: release-qa (Phase 12). Status date: 2026-08-05.
+- Owner of this list: release-qa (Phase 12). Status date: 2026-11-13 (entity item); other items as of 2026-08-05.
 - Plain statement, per the release mandate: **the beta is NOT releasable
   until every item below clears.** Each item is independently blocking.
   The congruence gate (docs/release/congruence-gate.md) passed every line

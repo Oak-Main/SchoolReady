@@ -12,7 +12,7 @@ import { icon } from "../icons";
 import { linkButton } from "../components/forms";
 import type { Screen } from "../components/chrome";
 import { LEGAL_PAGES as L } from "../copy/en";
-import { privacyBlock } from "./account";
+import { EXPORT_FILE_NAME, privacyBlock } from "./account";
 
 /** The date both pages took effect. Change it whenever either page changes. */
 export const LEGAL_EFFECTIVE = "2026-11-13";
@@ -39,7 +39,7 @@ export function renderPrivacyPage(): Screen {
         // /account (kept in one place so there is a single purge entry point).
         kind: "content",
         body: html`<h2>${icon("download", { size: 20 })} ${L.controlsTitle}</h2><p>${L.controlsBody}</p><p>${linkButton(
-          { label: L.controlsExportCta, href: "/api/export", variant: "secondary", icon: "download" },
+          { label: L.controlsExportCta, href: "/api/export", variant: "secondary", icon: "download", download: EXPORT_FILE_NAME },
         )} ${linkButton({ label: L.controlsDeleteCta, href: "/account", variant: "secondary", icon: "trash-2" })}</p>`,
       },
     ],
