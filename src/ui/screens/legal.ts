@@ -2,11 +2,14 @@
  * The privacy and terms pages (legal kit v2, 2026-11-13).
  *
  * The privacy page renders the same Phase 10 policy as the Alerts and privacy
- * page (privacyBlock), plus who operates the site. Operator strings come from
+ * page (privacyBlock), plus who operates the site and the export/delete
+ * controls the policy points to. Operator strings come from
  * config/brand.ts, the only file allowed to carry them.
  */
 import { BRAND } from "../../../config/brand";
 import { html } from "../html";
+import { icon } from "../icons";
+import { linkButton } from "../components/forms";
 import type { Screen } from "../components/chrome";
 import { LEGAL_PAGES as L } from "../copy/en";
 import { privacyBlock } from "./account";
@@ -30,6 +33,15 @@ export function renderPrivacyPage(): Screen {
       { kind: "content", body: html`<h1>${L.privacyTitle}</h1><p class="lead">${L.privacyLead}</p>` },
       { kind: "content", body: operator },
       { kind: "content", body: privacyBlock() },
+      {
+        // The policy says the export and delete controls are below, so they
+        // are: export downloads directly; delete is the one-pass form on
+        // /account (kept in one place so there is a single purge entry point).
+        kind: "content",
+        body: html`<h2>${icon("download", { size: 20 })} ${L.controlsTitle}</h2><p>${L.controlsBody}</p><p>${linkButton(
+          { label: L.controlsExportCta, href: "/api/export", variant: "secondary", icon: "download" },
+        )} ${linkButton({ label: L.controlsDeleteCta, href: "/account", variant: "secondary", icon: "trash-2" })}</p>`,
+      },
     ],
   };
 }

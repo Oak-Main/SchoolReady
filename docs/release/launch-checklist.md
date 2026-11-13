@@ -17,9 +17,9 @@
   document). See the launch runbook alongside this file for the
   Cloudflare provisioning + deploy steps this unblocks.
 - **Entity DISCHARGED 2026-11-13.** The repository owner supplied the
-  operating company for the whole portfolio (legal kit v2): Oak and Main
-  Developers LLC, with its address, legal email and governing law, now in
-  `config/brand.ts`. `/privacy` and `/terms` render them and are linked
+  operating company for the whole portfolio (legal kit v2). Its name,
+  address, legal email and governing law live only in `config/brand.ts`
+  (`legalEntity`, `legalAddress`, `legalEmail`, `governingLaw`). `/privacy` and `/terms` render them and are linked
   from every page's footer. Still open: favicon + manifest icons
   (clears the only Lighthouse console error and PWA installability,
   Phase 7 §7) and the real wordmark/logo graphic (current wordmark is
